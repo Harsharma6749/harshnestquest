@@ -102,13 +102,18 @@ export default function Listing() {
             <p className="bg-red-800 w-full max-w-[200px] rounded-md p-1 text-white text-center font-semibold shadow-md">
               For {listing.type === "rent" ? "Rent" : "Sale"}
             </p>
-            <p className="w-full max-w-[200px] bg-green-800 rounded-md p-1 text-white text-center font-semibold shadow-md">
-              {listing.offer && (
+
+            {listing.offer && (
+              <p className="w-full max-w-[200px] bg-green-800 rounded-md p-1 text-white text-center font-semibold shadow-md">
                 <p>
-                  ${+listing.regularPrice - +listing.discountPrice} discount
+                  $
+                  {(+listing.regularPrice - +listing.discountPrice)
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                  discount
                 </p>
-              )}
-            </p>
+              </p>
+            )}
           </div>
           <p className="mt-3 mb-3">
             <span className="font-semibold">Description - </span>
