@@ -1,6 +1,7 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
+import logoimage from "../assets/svg/logo-image.png";
 export default function Header() {
   const [pageState, setPageState] = useState("Sign in");
   const location = useLocation();
@@ -15,13 +16,13 @@ export default function Header() {
   }, [auth]);
   function pathMatchRoute(route) {
     if (route === location.pathname) {
-      return "text-black border-b-red-500";
+      return "text-black border-b-green-700";
     }
     return "text-gray-400 border-b-transparent";
   }
   function pathMatchRoutes(route1, route2) {
     if (route1 === location.pathname || route2 === location.pathname) {
-      return "text-black border-b-red-500";
+      return "text-black border-b-green-700";
     }
     return "text-gray-400 border-b-transparent";
   }
@@ -30,7 +31,7 @@ export default function Header() {
       <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
         <div>
           <img
-            src="https://static.rdc.moveaws.com/images/logos/rdc-logo-default.svg"
+            src={logoimage}
             alt="logo"
             className="h-5 cursor-pointer"
             onClick={() => navigate("/")}
