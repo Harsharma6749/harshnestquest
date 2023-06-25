@@ -26,7 +26,7 @@ export default function Contact({ userRef, listing }) {
       {landlord !== null && (
         <div className="flex flex-col w-full">
           <p>
-            Contact {landlord.name} for the {listing.name.toLowerCase()}
+            Contact {landlord.name} for <b>{listing.name.toLowerCase()}</b>
           </p>
           <div className="mt-3 mb-6">
             <textarea
