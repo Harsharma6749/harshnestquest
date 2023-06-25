@@ -2,6 +2,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import logoimage from "../assets/svg/logo-image.png";
+import smalllogoimage from "../assets/svg/small-logo-icon.png";
 export default function Header() {
   const [pageState, setPageState] = useState("Sign in");
   const location = useLocation();
@@ -33,7 +34,13 @@ export default function Header() {
           <img
             src={logoimage}
             alt="logo"
-            className="h-5 cursor-pointer"
+            className="hidden sm:block h-5 cursor-pointer"
+            onClick={() => navigate("/")}
+          />
+          <img
+            src={smalllogoimage}
+            alt="logo"
+            className="h-6 sm:hidden cursor-pointer"
             onClick={() => navigate("/")}
           />
         </div>
