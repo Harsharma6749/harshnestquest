@@ -1,13 +1,13 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
-import logoimage from "../assets/svg/logo-image.png";
-import smalllogoimage from "../assets/svg/small-logo-icon.png";
+
 export default function Header() {
   const [pageState, setPageState] = useState("Sign in");
   const location = useLocation();
   const navigate = useNavigate();
   const auth = getAuth();
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -15,34 +15,29 @@ export default function Header() {
       } else setPageState("Sign in");
     });
   }, [auth]);
+
   function pathMatchRoute(route) {
     if (route === location.pathname) {
       return "text-black border-b-green-700";
     }
     return "text-gray-400 border-b-transparent";
   }
+
   function pathMatchRoutes(route1, route2) {
     if (route1 === location.pathname || route2 === location.pathname) {
       return "text-black border-b-green-700";
     }
     return "text-gray-400 border-b-transparent";
   }
+
   return (
     <div className="bg-white border-b shadow-sm sticky top-0 z-50">
       <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
-        <div>
-          <img
-            src={logoimage}
-            alt="logo"
-            className="hidden sm:block h-5 cursor-pointer"
-            onClick={() => navigate("/")}
-          />
-          <img
-            src={smalllogoimage}
-            alt="logo"
-            className="h-6 sm:hidden cursor-pointer"
-            onClick={() => navigate("/")}
-          />
+        <div
+          className="text-xl font-bold text-green-700 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
+          HarshNestQuest
         </div>
         <div>
           <ul className="flex space-x-10 ">
