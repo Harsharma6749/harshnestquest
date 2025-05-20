@@ -1,4 +1,4 @@
-# HarshNestQuest - Real Estate Web App 🏠
+# HarshNestQuest - Real Estate Web App 🏠.
 
 HarshNestQuest is a responsive real estate web application that allows users to list, browse, rent, or buy properties with ease.
 
